@@ -9,21 +9,33 @@
 /* Begin PBXBuildFile section */
 		0189EBE1260021FB00B55088 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0189EBE0260021FB00B55088 /* AppDelegate.swift */; };
 		0189EBE3260021FB00B55088 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0189EBE2260021FB00B55088 /* SceneDelegate.swift */; };
-		0189EBE5260021FB00B55088 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0189EBE4260021FB00B55088 /* ViewController.swift */; };
+		0189EBE5260021FB00B55088 /* ConversationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0189EBE4260021FB00B55088 /* ConversationsViewController.swift */; };
 		0189EBE8260021FB00B55088 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0189EBE6260021FB00B55088 /* Main.storyboard */; };
 		0189EBEA2600220300B55088 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0189EBE92600220300B55088 /* Assets.xcassets */; };
 		0189EBED2600220300B55088 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0189EBEB2600220300B55088 /* LaunchScreen.storyboard */; };
+		0189EC012600721200B55088 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0189EC002600721200B55088 /* LoginViewController.swift */; };
+		0189EC042600726C00B55088 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0189EC032600726C00B55088 /* RegisterViewController.swift */; };
+		0189EC07260072BE00B55088 /* PhotoViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0189EC06260072BE00B55088 /* PhotoViewerViewController.swift */; };
+		0189EC0A260072C900B55088 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0189EC09260072C900B55088 /* HomeViewController.swift */; };
+		0189EC0D260138E200B55088 /* NewConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0189EC0C260138E200B55088 /* NewConversationViewController.swift */; };
+		0189EC1026013C7D00B55088 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0189EC0F26013C7D00B55088 /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0189EBDD260021FB00B55088 /* EasyHealth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyHealth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0189EBE0260021FB00B55088 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0189EBE2260021FB00B55088 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0189EBE4260021FB00B55088 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0189EBE4260021FB00B55088 /* ConversationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsViewController.swift; sourceTree = "<group>"; };
 		0189EBE7260021FB00B55088 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0189EBE92600220300B55088 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0189EBEC2600220300B55088 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0189EBEE2600220300B55088 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0189EC002600721200B55088 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		0189EC032600726C00B55088 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		0189EC06260072BE00B55088 /* PhotoViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewerViewController.swift; sourceTree = "<group>"; };
+		0189EC09260072C900B55088 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		0189EC0C260138E200B55088 /* NewConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConversationViewController.swift; sourceTree = "<group>"; };
+		0189EC0F26013C7D00B55088 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +68,69 @@
 		0189EBDF260021FB00B55088 /* EasyHealth */ = {
 			isa = PBXGroup;
 			children = (
-				0189EBE0260021FB00B55088 /* AppDelegate.swift */,
-				0189EBE2260021FB00B55088 /* SceneDelegate.swift */,
-				0189EBE4260021FB00B55088 /* ViewController.swift */,
-				0189EBE6260021FB00B55088 /* Main.storyboard */,
-				0189EBE92600220300B55088 /* Assets.xcassets */,
-				0189EBEB2600220300B55088 /* LaunchScreen.storyboard */,
+				0189EBF926002CE400B55088 /* Resources */,
+				0189EBF826002CBB00B55088 /* ViewModels */,
+				0189EBF726002CAD00B55088 /* Models */,
+				0189EBF626002C9C00B55088 /* Views */,
+				0189EBF526002C8400B55088 /* Controllers */,
 				0189EBEE2600220300B55088 /* Info.plist */,
 			);
 			path = EasyHealth;
+			sourceTree = "<group>";
+		};
+		0189EBF526002C8400B55088 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0189EBE4260021FB00B55088 /* ConversationsViewController.swift */,
+				0189EC002600721200B55088 /* LoginViewController.swift */,
+				0189EC032600726C00B55088 /* RegisterViewController.swift */,
+				0189EC06260072BE00B55088 /* PhotoViewerViewController.swift */,
+				0189EC09260072C900B55088 /* HomeViewController.swift */,
+				0189EC0C260138E200B55088 /* NewConversationViewController.swift */,
+				0189EC0F26013C7D00B55088 /* ProfileViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		0189EBF626002C9C00B55088 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0189EBFA26005CDE00B55088 /* Storyboards */,
+				0189EBE92600220300B55088 /* Assets.xcassets */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0189EBF726002CAD00B55088 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0189EBF826002CBB00B55088 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		0189EBF926002CE400B55088 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0189EBE0260021FB00B55088 /* AppDelegate.swift */,
+				0189EBE2260021FB00B55088 /* SceneDelegate.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		0189EBFA26005CDE00B55088 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				0189EBEB2600220300B55088 /* LaunchScreen.storyboard */,
+				0189EBE6260021FB00B55088 /* Main.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,9 +203,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0189EBE5260021FB00B55088 /* ViewController.swift in Sources */,
+				0189EBE5260021FB00B55088 /* ConversationsViewController.swift in Sources */,
+				0189EC042600726C00B55088 /* RegisterViewController.swift in Sources */,
+				0189EC0D260138E200B55088 /* NewConversationViewController.swift in Sources */,
 				0189EBE1260021FB00B55088 /* AppDelegate.swift in Sources */,
 				0189EBE3260021FB00B55088 /* SceneDelegate.swift in Sources */,
+				0189EC012600721200B55088 /* LoginViewController.swift in Sources */,
+				0189EC1026013C7D00B55088 /* ProfileViewController.swift in Sources */,
+				0189EC0A260072C900B55088 /* HomeViewController.swift in Sources */,
+				0189EC07260072BE00B55088 /* PhotoViewerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
