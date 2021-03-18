@@ -129,6 +129,9 @@ class LoginViewController: UIViewController {
     }
     
     @objc private func loginButtonTapped() {
+        emailField.resignFirstResponder()
+        passwordField.resignFirstResponder()
+        
         guard let email = emailField.text, let password = passwordField.text,
               !email.isEmpty, !password.isEmpty, password.count >= 6 else {
                 loginAlertError()
@@ -141,8 +144,6 @@ class LoginViewController: UIViewController {
         vc.title = "Create Account"
         navigationController?.pushViewController(vc, animated: true)
     }
-    
-
   
 }
 
