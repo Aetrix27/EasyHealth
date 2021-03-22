@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0108A3E226048A6C0089AC79 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0108A3E126048A6C0089AC79 /* DatabaseManager.swift */; };
+		017B216D2603357F0024C58B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 017B216C2603357F0024C58B /* GoogleService-Info.plist */; };
 		0189EBE1260021FB00B55088 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0189EBE0260021FB00B55088 /* AppDelegate.swift */; };
 		0189EBE3260021FB00B55088 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0189EBE2260021FB00B55088 /* SceneDelegate.swift */; };
 		0189EBE5260021FB00B55088 /* ConversationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0189EBE4260021FB00B55088 /* ConversationsViewController.swift */; };
@@ -20,9 +22,12 @@
 		0189EC0D260138E200B55088 /* NewConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0189EC0C260138E200B55088 /* NewConversationViewController.swift */; };
 		0189EC1026013C7D00B55088 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0189EC0F26013C7D00B55088 /* ProfileViewController.swift */; };
 		0189EC152601807200B55088 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0189EC142601807200B55088 /* extensions.swift */; };
+		EACDF62F84ECC9C1E7B65B23 /* Pods_EasyHealth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A688486F9BAA009F0202B11 /* Pods_EasyHealth.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0108A3E126048A6C0089AC79 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		017B216C2603357F0024C58B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../../Volumes/External Storage/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0189EBDD260021FB00B55088 /* EasyHealth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyHealth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0189EBE0260021FB00B55088 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0189EBE2260021FB00B55088 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -38,6 +43,9 @@
 		0189EC0C260138E200B55088 /* NewConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConversationViewController.swift; sourceTree = "<group>"; };
 		0189EC0F26013C7D00B55088 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		0189EC142601807200B55088 /* extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
+		6A688486F9BAA009F0202B11 /* Pods_EasyHealth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EasyHealth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC70AAFDB6D491107D26D7E9 /* Pods-EasyHealth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyHealth.release.xcconfig"; path = "Target Support Files/Pods-EasyHealth/Pods-EasyHealth.release.xcconfig"; sourceTree = "<group>"; };
+		EE643671E1C5549F5563CBEC /* Pods-EasyHealth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyHealth.debug.xcconfig"; path = "Target Support Files/Pods-EasyHealth/Pods-EasyHealth.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EACDF62F84ECC9C1E7B65B23 /* Pods_EasyHealth.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +65,8 @@
 			children = (
 				0189EBDF260021FB00B55088 /* EasyHealth */,
 				0189EBDE260021FB00B55088 /* Products */,
+				D8563451B2FEBFE836088C06 /* Frameworks */,
+				E884E0833FE363C75D08F93A /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -70,6 +81,7 @@
 		0189EBDF260021FB00B55088 /* EasyHealth */ = {
 			isa = PBXGroup;
 			children = (
+				017B216C2603357F0024C58B /* GoogleService-Info.plist */,
 				0189EBF926002CE400B55088 /* Resources */,
 				0189EBF826002CBB00B55088 /* ViewModels */,
 				0189EBF726002CAD00B55088 /* Models */,
@@ -122,6 +134,7 @@
 				0189EBE0260021FB00B55088 /* AppDelegate.swift */,
 				0189EBE2260021FB00B55088 /* SceneDelegate.swift */,
 				0189EC142601807200B55088 /* extensions.swift */,
+				0108A3E126048A6C0089AC79 /* DatabaseManager.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -144,6 +157,23 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		D8563451B2FEBFE836088C06 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6A688486F9BAA009F0202B11 /* Pods_EasyHealth.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E884E0833FE363C75D08F93A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EE643671E1C5549F5563CBEC /* Pods-EasyHealth.debug.xcconfig */,
+				DC70AAFDB6D491107D26D7E9 /* Pods-EasyHealth.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -151,9 +181,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0189EBF12600220300B55088 /* Build configuration list for PBXNativeTarget "EasyHealth" */;
 			buildPhases = (
+				608AAE4D84F7B786FA9D5C7C /* [CP] Check Pods Manifest.lock */,
 				0189EBD9260021FB00B55088 /* Sources */,
 				0189EBDA260021FB00B55088 /* Frameworks */,
 				0189EBDB260021FB00B55088 /* Resources */,
+				676BF4D671EA82C540808069 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -202,6 +234,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0189EBED2600220300B55088 /* LaunchScreen.storyboard in Resources */,
+				017B216D2603357F0024C58B /* GoogleService-Info.plist in Resources */,
 				0189EBEA2600220300B55088 /* Assets.xcassets in Resources */,
 				0189EBE8260021FB00B55088 /* Main.storyboard in Resources */,
 			);
@@ -209,12 +242,55 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		608AAE4D84F7B786FA9D5C7C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EasyHealth-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		676BF4D671EA82C540808069 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EasyHealth/Pods-EasyHealth-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EasyHealth/Pods-EasyHealth-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EasyHealth/Pods-EasyHealth-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0189EBD9260021FB00B55088 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				0189EBE5260021FB00B55088 /* ConversationsViewController.swift in Sources */,
+				0108A3E226048A6C0089AC79 /* DatabaseManager.swift in Sources */,
 				0189EC042600726C00B55088 /* RegisterViewController.swift in Sources */,
 				0189EC0D260138E200B55088 /* NewConversationViewController.swift in Sources */,
 				0189EBE1260021FB00B55088 /* AppDelegate.swift in Sources */,
@@ -367,6 +443,7 @@
 		};
 		0189EBF22600220300B55088 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EE643671E1C5549F5563CBEC /* Pods-EasyHealth.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -385,6 +462,7 @@
 		};
 		0189EBF32600220300B55088 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DC70AAFDB6D491107D26D7E9 /* Pods-EasyHealth.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

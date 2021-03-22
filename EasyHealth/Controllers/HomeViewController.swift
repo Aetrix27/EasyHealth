@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 class HomeViewController: UIViewController {
     
     @IBAction func login(_ sender: Any) {
@@ -18,14 +17,11 @@ class HomeViewController: UIViewController {
         present(nav, animated: false)
     }
     
-    @IBAction func register(_ sender: Any) {
-        let vc = RegisterViewController()
-        let nav = UINavigationController(rootViewController: vc)
-        
-        nav.modalPresentationStyle = .fullScreen
-        present(nav, animated: false)
-        
+    @objc private func didTapLogin(){
+        let vc = LoginViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
+    
     
     @IBAction func viewChats(_ sender: Any) {
         let vc = ConversationsViewController()
@@ -37,13 +33,12 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+
         // Do any additional setup after loading the view.
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //let vc = segue.destination as? LoginViewController
-        
-     
 
         
         }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class LoginViewController: UIViewController {
     
@@ -16,6 +17,7 @@ class LoginViewController: UIViewController {
         return scrollView
     }()
     
+    
     private let imageView : UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "logo")
@@ -23,6 +25,7 @@ class LoginViewController: UIViewController {
         return imageView
         
     }()
+ 
     
     private let emailField: UITextField = {
         let field = UITextField()
@@ -71,6 +74,19 @@ class LoginViewController: UIViewController {
         return button
     }()
     
+    
+    private let homeButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Home", for: .normal)
+        button.backgroundColor = .link
+        button.setTitleColor(.white, for: .normal)
+        button.layer.cornerRadius = 12
+        button.layer.masksToBounds = true
+        button.titleLabel?.font = .systemFont(ofSize: 20, weight: .bold)
+        
+        return button
+    }()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,17 +97,19 @@ class LoginViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Register", style: .done,
                                                             target: self,
                                                             action: #selector(didTapRegister))
+
         
         loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
+        homeButton.addTarget(self, action: #selector(didTapHome), for: .touchUpInside)
         
         emailField.delegate = self
         passwordField.delegate = self
-        
         
         view.addSubview(scrollView)
         scrollView.addSubview(imageView)
         scrollView.addSubview(emailField)
         scrollView.addSubview(passwordField)
+        scrollView.addSubview(homeButton)
         scrollView.addSubview(loginButton)
 
     }
@@ -100,13 +118,14 @@ class LoginViewController: UIViewController {
         super.viewDidLayoutSubviews()
         scrollView.frame = view.bounds
         let size = view.width/3
+        
         imageView.frame = CGRect(x: (view.width-size)/2,
                                  y: 20,
                                  width: size,
                                  height: size)
         
         emailField.frame = CGRect(x: 30,
-                                  y: imageView.bottom+25,
+                                  y:imageView.bottom+25,
                                   width: scrollView.width-60,
                                   height: 52)
         
@@ -115,8 +134,13 @@ class LoginViewController: UIViewController {
                                   width: scrollView.width-60,
                                   height: 52)
         
-        loginButton.frame = CGRect(x: 30,
+        homeButton.frame = CGRect(x: 30,
                                   y: passwordField.bottom+25,
+                                  width: scrollView.width-60,
+                                  height: 52)
+        
+        loginButton.frame = CGRect(x: 30,
+                                  y: homeButton.bottom+25,
                                   width: scrollView.width-60,
                                   height: 52)
     }
@@ -137,12 +161,32 @@ class LoginViewController: UIViewController {
                 loginAlertError()
                 return
         }
+        
+        FirebaseAuth.Auth.auth().signIn(withEmail: email, password: password, completion: { [weak self] authResult, error in
+            guard let strongSelf = self else {
+                return
+            }
+            guard let result = authResult, error == nil else {
+                print("Failed to login user")
+                return
+            }
+            
+            let user = result.user
+            print("Logged in User \(user)")
+            strongSelf.navigationController?.dismiss(animated: true, completion: nil)
+        })
     }
     
     @objc private func didTapRegister(){
         let vc = RegisterViewController()
         vc.title = "Create Account"
         navigationController?.pushViewController(vc, animated: true)
+    }
+
+    @objc private func didTapHome(){
+        let vc = HomeViewController()
+        navigationController?.dismiss(animated: true, completion: nil)
+        
     }
   
 }

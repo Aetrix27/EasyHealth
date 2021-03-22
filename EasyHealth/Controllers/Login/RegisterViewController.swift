@@ -1,11 +1,6 @@
-//
-//  RegisterViewController.swift
-//  EasyHealth
-//
-//  Created by David Guerrero on 3/15/21.
-//
 
 import UIKit
+import FirebaseAuth
 
 class RegisterViewController: UIViewController {
     
@@ -21,6 +16,10 @@ class RegisterViewController: UIViewController {
         imageView.image = UIImage(systemName: "person")
         imageView.tintColor = .gray
         imageView.contentMode = .scaleAspectFit
+        imageView.layer.masksToBounds = true
+        imageView.layer.borderWidth = 1
+        imageView.layer.borderColor = UIColor.red.cgColor
+        
         return imageView
         
     }()
@@ -76,8 +75,6 @@ class RegisterViewController: UIViewController {
         
     }()
     
-    
-    
     private let passwordField: UITextField = {
         let field = UITextField()
         field.autocapitalizationType = .none
@@ -115,15 +112,12 @@ class RegisterViewController: UIViewController {
 
         view.backgroundColor = .white
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Register", style: .done,
-                                                            target: self,
-                                                            action: #selector(didTapRegister))
-        
+        //dont need?
+  
         registerButton.addTarget(self, action: #selector(registerButtonTapped), for: .touchUpInside)
         
         emailField.delegate = self
         passwordField.delegate = self
-        
         
         view.addSubview(scrollView)
         scrollView.addSubview(imageView)
@@ -138,57 +132,51 @@ class RegisterViewController: UIViewController {
         
         let gesture = UITapGestureRecognizer(target: self, action: #selector(tapChangeProfilePic))
         
-        //gesture.numberOfTouchesRequired = 1
         imageView.addGestureRecognizer(gesture)
 
     }
     
     @objc private func tapChangeProfilePic(){
-        print("Pic change")
+        showPhotoActionSheet()
     }
     
     override func viewDidLayoutSubviews(){
         super.viewDidLayoutSubviews()
         scrollView.frame = view.bounds
         let size = view.width/3
-        imageView.frame = CGRect(x: (view.width-size)/2,
+        imageView.frame = CGRect(x: (scrollView.width-size)/2,
                                  y: 20,
                                  width: size,
                                  height: size)
+        imageView.layer.cornerRadius = imageView.width/2.0
         
         firstNameField.frame = CGRect(x: 30,
-                                  y: imageView.bottom+23,
-                                  width: scrollView.width-60,
-                                  height: 52)
+                                      y: imageView.bottom+8,
+                                      width: scrollView.width-60,
+                                      height: 52)
         
         lastNameField.frame = CGRect(x: 30,
-                                  y: firstNameField.bottom+23,
+                                  y: firstNameField.bottom+8,
                                   width: scrollView.width-60,
                                   height: 52)
         
         emailField.frame = CGRect(x: 30,
-                                  y: lastNameField.bottom+23,
+                                  y: lastNameField.bottom+8,
                                   width: scrollView.width-60,
                                   height: 52)
         
         
         passwordField.frame = CGRect(x: 30,
-                                  y: emailField.bottom+23,
+                                  y: emailField.bottom+8,
                                   width: scrollView.width-60,
                                   height: 52)
         
         registerButton.frame = CGRect(x: 30,
-                                  y: passwordField.bottom+23,
+                                  y: passwordField.bottom+8,
                                   width: scrollView.width-60,
                                   height: 52)
     }
     
-    func registerAlertError(){
-        let alert = UIAlertController(title: "Error", message: "Please enter all fields to create an account.",
-                                      preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title:"Dismiss", style: .cancel, handler: nil))
-        present(alert, animated: true)
-    }
     
     @objc private func registerButtonTapped() {
         emailField.resignFirstResponder()
@@ -207,7 +195,44 @@ class RegisterViewController: UIViewController {
               password.count >= 6 else {
                 registerAlertError()
                 return
-        }
+            }
+        
+        //Firebase Log In
+        
+        DatabaseManager.shared.userExists(with: email, completion: { [weak self] exists in
+            guard let strongSelf = self else {
+                return
+            }
+            guard !exists else {
+                strongSelf.registerAlertError(message: "A user account with that email address already exists")
+                return
+            }
+            
+            FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password, completion: {authResult, error in
+             
+                guard authResult != nil, error == nil else{
+                    print("Error in making user.")
+                    
+                    return
+                }
+                
+                DatabaseManager.shared.insertUser(with: EasyHealthUser(firstName: firstName,
+                                                                       lastName: lastName,
+                                                                       emailAddress: email))
+                
+                strongSelf.navigationController?.dismiss(animated: true, completion: nil)
+            })
+        })
+    }
+    
+    func registerAlertError(message : String = "Please enter all fields"){
+        let alert = UIAlertController(title: "Error",
+                                      message: message,
+                                      preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title:"Dismiss", style: .cancel, handler: nil))
+        
+        present(alert, animated: true)
     }
     
     @objc private func didTapRegister(){
@@ -215,8 +240,6 @@ class RegisterViewController: UIViewController {
         vc.title = "Create Account"
         navigationController?.pushViewController(vc, animated: true)
     }
-    
-
   
 }
 
@@ -231,5 +254,63 @@ extension RegisterViewController: UITextFieldDelegate{
         }
         
         return true
+    }
+}
+
+extension RegisterViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func showPhotoActionSheet(){
+        let actionSheet = UIAlertController(title : "Profile Picture",
+                                       message: "How would you like to select a picture?",
+                                       preferredStyle: .actionSheet )
+        actionSheet.addAction(UIAlertAction(title: "Cancel",
+                                            style: .cancel,
+                                            handler: nil))
+        actionSheet.addAction(UIAlertAction(title: "Take Photo",
+                                            style: .default,
+                                            handler: { [weak self] _ in
+                                                self?.presentCamera()
+        }))
+        
+        actionSheet.addAction(UIAlertAction(title: "Choose Photo",
+                                            style: .default,
+                                            handler: { [weak self] _ in
+                                                
+                                                self?.presentPhotoPicker()
+        }))
+        
+        present(actionSheet, animated: true)
+        
+    }
+    
+    func presentCamera(){
+        let vc = UIImagePickerController()
+        vc.sourceType = .camera
+        vc.delegate = self
+        vc.allowsEditing = true
+        present(vc, animated: true)
+        
+    }
+    func presentPhotoPicker(){
+        let vc = UIImagePickerController()
+        vc.sourceType = .photoLibrary
+        vc.delegate = self
+        vc.allowsEditing = true
+        present(vc, animated: true)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]){
+        picker.dismiss(animated: true, completion: nil)
+        guard let selectedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else{
+            return
+        }
+        
+        self.imageView.image = selectedImage
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    
+        
     }
 }
