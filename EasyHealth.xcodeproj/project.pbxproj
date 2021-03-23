@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0108A3E226048A6C0089AC79 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0108A3E126048A6C0089AC79 /* DatabaseManager.swift */; };
+		0175B3B92609AD63001B7C94 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0175B3B82609AD63001B7C94 /* ChatViewController.swift */; };
 		017B216D2603357F0024C58B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 017B216C2603357F0024C58B /* GoogleService-Info.plist */; };
 		0189EBE1260021FB00B55088 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0189EBE0260021FB00B55088 /* AppDelegate.swift */; };
 		0189EBE3260021FB00B55088 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0189EBE2260021FB00B55088 /* SceneDelegate.swift */; };
@@ -27,6 +28,7 @@
 
 /* Begin PBXFileReference section */
 		0108A3E126048A6C0089AC79 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		0175B3B82609AD63001B7C94 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		017B216C2603357F0024C58B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../../Volumes/External Storage/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0189EBDD260021FB00B55088 /* EasyHealth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyHealth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0189EBE0260021FB00B55088 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 				0189EC09260072C900B55088 /* HomeViewController.swift */,
 				0189EC0C260138E200B55088 /* NewConversationViewController.swift */,
 				0189EC0F26013C7D00B55088 /* ProfileViewController.swift */,
+				0175B3B82609AD63001B7C94 /* ChatViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 				0189EC012600721200B55088 /* LoginViewController.swift in Sources */,
 				0189EC1026013C7D00B55088 /* ProfileViewController.swift in Sources */,
 				0189EC0A260072C900B55088 /* HomeViewController.swift in Sources */,
+				0175B3B92609AD63001B7C94 /* ChatViewController.swift in Sources */,
 				0189EC07260072BE00B55088 /* PhotoViewerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
