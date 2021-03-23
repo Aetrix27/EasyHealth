@@ -1,9 +1,3 @@
-//
-//  LoginViewController.swift
-//  EasyHealth
-//
-//  Created by David Guerrero on 3/15/21.
-//
 
 import UIKit
 import FirebaseAuth
@@ -155,6 +149,8 @@ class LoginViewController: UIViewController {
             }
             
             let user = result.user
+            
+            UserDefaults.standard.set(email, forKey:"email")
             print("Logged in User \(user)")
             strongSelf.navigationController?.dismiss(animated: true, completion: nil)
         })

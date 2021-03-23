@@ -13,6 +13,12 @@ final class DatabaseManager {
     
     private let database = Database.database().reference()
     
+    static func safeEmail(email: String) -> String{
+        var safeEmail = email.replacingOccurrences(of: ".", with: "-")
+        safeEmail = safeEmail.replacingOccurrences(of: "@", with: "-")
+        return safeEmail
+    }
+    
 }
 
 extension DatabaseManager {
@@ -42,11 +48,16 @@ struct EasyHealthUser{
     let firstName: String
     let lastName : String
     let emailAddress : String
-    //let profilePictureUrl: String
+    
     var safeEmail: String {
         var safeEmail = emailAddress.replacingOccurrences(of: ".", with: "-")
         safeEmail = safeEmail.replacingOccurrences(of: "@", with: "-")
         return safeEmail
         
     }
+    
+    var profilePictureFileName: String {
+        return "\(safeEmail)_profile_picture.png"
+    }
+    
 }

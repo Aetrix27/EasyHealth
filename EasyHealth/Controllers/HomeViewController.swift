@@ -30,6 +30,7 @@ class HomeViewController: UIViewController {
         nav.modalPresentationStyle = .fullScreen
         present(nav, animated: false)
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
