@@ -9,14 +9,8 @@ import UIKit
 import FirebaseAuth
 
 class ConversationsViewController: UIViewController {
-    private let tableView: UITableView = {
-        let table = UITableView()
-        table.isHidden = true
-        table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        
-        return table
-    }()
-    
+    @IBOutlet var tableView : UITableView!
+
     private let noConversationLabel: UILabel = {
         let label = UILabel()
         label.text = "No Chats"
@@ -29,11 +23,24 @@ class ConversationsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(tableView)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(tappedComposedButton))
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         view.addSubview(noConversationLabel)
-        setupTableView()
+        tableView.delegate = self
+        tableView.dataSource = self
         fetchConversations()
         //navigationController?.navigationBar.topItem?.title = "Chats"
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        tableView.frame = view.bounds
+    }
+    
+    @objc private func tappedComposedButton(){
+        let vc = NewConversationViewController()
+        let navVC = UINavigationController(rootViewController: vc)
+        present(navVC, animated: true)
     }
 
     override func viewDidAppear(_ animated: Bool){
@@ -52,13 +59,8 @@ class ConversationsViewController: UIViewController {
         }
     }
     
-    private func setupTableView(){
-        tableView.delegate = self
-        tableView.dataSource = self
-    }
-    
     private func fetchConversations(){
-        
+        tableView.isHidden = false
     }
 
 }

@@ -15,15 +15,25 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NCR-Nu-8J4">
+                                <rect key="frame" x="0.0" y="56" width="414" height="786"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="Chats" id="Yfs-9y-cUc"/>
+                    <connections>
+                        <outlet property="tableView" destination="NCR-Nu-8J4" id="jhK-Mo-VNS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <exit id="chM-hY-BWq" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-980" y="917"/>
+            <point key="canvasLocation" x="-981.15942028985512" y="916.74107142857133"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="yNz-75-Jtb">
@@ -123,7 +133,6 @@
         <!--Chats-->
         <scene sceneID="JBv-th-rkI">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rWc-RS-5CP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController title="Chats" id="i4v-At-QFM" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" title="Chats" id="iyb-rC-Dda"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="dx9-3b-62P">
@@ -134,6 +143,7 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="wgR-St-CgW"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rWc-RS-5CP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-961" y="162"/>
         </scene>
