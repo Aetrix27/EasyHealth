@@ -35,7 +35,7 @@ class LoginViewController: UIViewController {
         field.layer.cornerRadius = 12
         field.layer.borderWidth = 1
         field.layer.borderColor = UIColor.lightGray.cgColor
-        //field.placeholder = "Email Address"
+        field.placeholder = "Email Address"
         field.leftView = UIView(frame: CGRect(x: 0, y:0, width: 5, height: 0))
         field.leftViewMode = .always
         field.backgroundColor = .white
@@ -52,7 +52,7 @@ class LoginViewController: UIViewController {
         field.layer.cornerRadius = 12
         field.layer.borderWidth = 1
         field.layer.borderColor = UIColor.lightGray.cgColor
-        //field.placeholder = "Email Address"
+        field.placeholder = "Password"
         field.leftView = UIView(frame: CGRect(x: 0, y:0, width: 5, height: 0))
         field.leftViewMode = .always
         field.backgroundColor = .white
@@ -73,20 +73,6 @@ class LoginViewController: UIViewController {
         
         return button
     }()
-    
-    
-    private let homeButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Home", for: .normal)
-        button.backgroundColor = .link
-        button.setTitleColor(.white, for: .normal)
-        button.layer.cornerRadius = 12
-        button.layer.masksToBounds = true
-        button.titleLabel?.font = .systemFont(ofSize: 20, weight: .bold)
-        
-        return button
-    }()
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -97,10 +83,13 @@ class LoginViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Register", style: .done,
                                                             target: self,
                                                             action: #selector(didTapRegister))
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Home", style: .done,
+                                                            target: self,
+                                                            action: #selector(didTapHome))
 
         
         loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
-        homeButton.addTarget(self, action: #selector(didTapHome), for: .touchUpInside)
         
         emailField.delegate = self
         passwordField.delegate = self
@@ -109,7 +98,6 @@ class LoginViewController: UIViewController {
         scrollView.addSubview(imageView)
         scrollView.addSubview(emailField)
         scrollView.addSubview(passwordField)
-        scrollView.addSubview(homeButton)
         scrollView.addSubview(loginButton)
 
     }
@@ -134,13 +122,8 @@ class LoginViewController: UIViewController {
                                   width: scrollView.width-60,
                                   height: 52)
         
-        homeButton.frame = CGRect(x: 30,
-                                  y: passwordField.bottom+25,
-                                  width: scrollView.width-60,
-                                  height: 52)
-        
         loginButton.frame = CGRect(x: 30,
-                                  y: homeButton.bottom+25,
+                                  y: passwordField.bottom+25,
                                   width: scrollView.width-60,
                                   height: 52)
     }

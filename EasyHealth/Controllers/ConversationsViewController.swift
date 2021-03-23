@@ -12,8 +12,7 @@ class ConversationsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .green
-        
+        //navigationController?.navigationBar.topItem?.title = "Chats"
     }
 
     override func viewDidAppear(_ animated: Bool){
